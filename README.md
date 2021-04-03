@@ -2,9 +2,9 @@
 
 In this notebook [tweets_hate_speech_detection](https://github.com/YamenHabib/tweets_hate_speech_detection/blob/main/tweets_hate_speech_detection.ipynb) we are getting to know our dataset, building the model and test it before and after traingin.
 
-In this notebook [ploting_precision_recall_curve](https://github.com/YamenHabib/tweets_hate_speech_detection/blob/main/ploting_precision_recall_curve.ipynb) we are using Tensorbord to plot PR-curve.
+In this notebook [ploting_precision_recall_curve](https://github.com/YamenHabib/tweets_hate_speech_detection/blob/main/ploting_precision_recall_curve.ipynb) we are using Tensorbord to plot PR-curve. To see Tensorbord graphs you need to open the notebook in google colab.
 
-[Eval](https://github.com/YamenHabib/tweets_hate_speech_detection/blob/main/eval.py) is an CLI python file to test our model.
+[Eval](https://github.com/YamenHabib/tweets_hate_speech_detection/blob/main/eval.py) is an CLI python file to test our model. 
 
 ``` python
 python eval.py "american black"
