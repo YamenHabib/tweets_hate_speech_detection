@@ -16,3 +16,4 @@ Our Model thinks that your tweet is: a hate speach
 ```
 
 you can download the train model from [here](https://drive.google.com/file/d/1-ObPKmSgN8Pprmz9S02L02pi1qjCgBUE/view?usp=sharing)
+you need to put it in the same directory with the eval.py file.
