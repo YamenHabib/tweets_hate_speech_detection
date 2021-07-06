@@ -6,6 +6,7 @@ import logging
 logging.getLogger("transformers.tokenization_utils_base").setLevel(logging.ERROR)
 from transformers import RobertaTokenizer, RobertaModel
 
+from model import *
 parser = argparse.ArgumentParser(description='Evaluate the hate speach of a tweet.')
 parser.add_argument('tweet', action='store', type=str, help='The text of the tweet to evaluate')
 
@@ -25,29 +26,6 @@ def load_checkpoint(path, model):
     model.load_state_dict(state_dict['model_state_dict'])
     return state_dict['valid_loss']
   
-
-class ROBERTAClassifier(torch.nn.Module):
-    def __init__(self, dropout_rate=0.3):
-        super(ROBERTAClassifier, self).__init__()
-        
-        self.roberta = RobertaModel.from_pretrained('roberta-base')
-        self.d1 = torch.nn.Dropout(dropout_rate)
-        self.l1 = torch.nn.Linear(768, 128)
-        self.bn1 = torch.nn.LayerNorm(128)
-        self.d2 = torch.nn.Dropout(dropout_rate)
-        self.l2 = torch.nn.Linear(128, 2)
-        
-    def forward(self, input_ids, attention_mask):
-        _, x = self.roberta(input_ids=input_ids, attention_mask=attention_mask)
-        x = self.d1(x)
-        x = self.l1(x)
-        x = self.bn1(x)
-        x = torch.nn.Tanh()(x)
-        x = self.d2(x)
-        x = self.l2(x)
-        
-        return x
-
 model = ROBERTAClassifier(0.4)
 path = "model.pkl"
 load_checkpoint(path, model)
